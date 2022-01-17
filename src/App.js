@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from "styled-components";
+import { SubmitButton } from "./components/styledElements/Buttons.styled";
+import { SearchBar } from "./components/styledElements/SearchBars.styled";
+import { themeDark } from "./components/styles/Themes";
+import { themeLight } from "./components/styles/Themes";
+import GlobalStyles from "./components/styles/GlobalStyle";
+import { MainPageLayout } from "./components/styledElements/MainSection.styled";
+import Header from "./components/appComponents/Header";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={themeLight}>
+      <>
+        <GlobalStyles />
+        <Header />
+        <MainPageLayout>
+          <ThemeProvider theme={themeDark}>
+            <SearchBar type="text" />
+            <SubmitButton>Click me!</SubmitButton>
+          </ThemeProvider>
+        </MainPageLayout>
+      </>
+    </ThemeProvider>
   );
 }
 
