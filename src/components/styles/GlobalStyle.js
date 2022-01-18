@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { themeDark } from "./Themes";
+
 const GlobalStyles = createGlobalStyle`
 * {
     margin: 0;
@@ -11,14 +11,27 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    background-color: ${({theme}) => theme.colors.myBlack};
-    color: ${({theme}) => theme.colors.myWhite};
+    background-image: url(images/sunCloudsBlueSky.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    background-color: ${({theme}) => theme.colors.bgClr};
+    color: ${({theme}) => theme.colors.Clr};
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 1.1em;
+}
+a {
+    text-decoration: none;
+    color: ${({theme}) => theme.colors.Clr}
 }
 img {
     height: auto;
     max-width: 100%;
+}
+li {
+    list-style-type: none;
 }
 `
 

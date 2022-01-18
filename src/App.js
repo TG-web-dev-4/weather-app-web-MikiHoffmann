@@ -1,25 +1,24 @@
 import { ThemeProvider } from "styled-components";
-import { SubmitButton } from "./components/styledElements/Buttons.styled";
-import { SearchBar } from "./components/styledElements/SearchBars.styled";
-import { themeDark } from "./components/styles/Themes";
 import { themeLight } from "./components/styles/Themes";
 import GlobalStyles from "./components/styles/GlobalStyle";
-import { MainPageLayout } from "./components/styledElements/MainSection.styled";
+
 import Header from "./components/appComponents/Header";
+import {Routes, Route} from 'react-router-dom';
+
+import WeatherCard from "./pages/WeatherCard";
+import WeatherOverview from "./pages/WeatherOverview";
+import WeatherDetails from "./pages/WeatherDetails";
 
 function App() {
   return (
     <ThemeProvider theme={themeLight}>
-      <>
-        <GlobalStyles />
-        <Header />
-        <MainPageLayout>
-          <ThemeProvider theme={themeDark}>
-            <SearchBar type="text" />
-            <SubmitButton>Click me!</SubmitButton>
-          </ThemeProvider>
-        </MainPageLayout>
-      </>
+      <GlobalStyles />
+      <Header />
+      <Routes>
+        <Route path='/' element={<WeatherCard/>}/>
+        <Route path='/WeatherOverview' element={<WeatherOverview/>}/>
+        <Route path='/WeatherDetails' element={<WeatherDetails/>}/>
+      </Routes>
     </ThemeProvider>
   );
 }
