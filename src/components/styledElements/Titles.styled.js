@@ -12,3 +12,8 @@ export const SectionTitle = styled.h2`
   color: ${({ theme }) => theme.colors.titleClr};
   text-align: center;
 `;
+export const SubTitle = styled.h3`
+  width: 100%;
+  color: ${({ theme }) => theme.colors.titleClr};
+  text-align: center;
+`;

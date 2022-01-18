@@ -3,16 +3,16 @@ import { themeLight } from "../components/styles/Themes";
 
 import { MainPageLayout } from "../components/styledElements/MainSection.styled";
 import { FlexContainer } from "../components/styledElements/Containers.styled";
-import Card from "../components/appComponents/Card";
+import WeatherData from "../components/appComponents/WeatherData";
 
-export default function WeatherCard() {
+export default function WeatherPage() {
   return (
+    <ThemeProvider theme={themeLight}>
       <MainPageLayout>
-        <ThemeProvider theme={themeLight}>
-          <FlexContainer>
-            <Card/>
-          </FlexContainer>
-        </ThemeProvider>
+        <FlexContainer>
+          <WeatherData />
+        </FlexContainer>
       </MainPageLayout>
+    </ThemeProvider>
   );
 }

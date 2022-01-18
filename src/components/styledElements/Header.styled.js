@@ -7,6 +7,13 @@ export const StyledHeader = styled.header`
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(4, 1fr);
   grid-gap: 0.5em;
+  background-image: url(images/sunCloudsBlueSky.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+  background-color: ${({ theme }) => theme.colors.bgClr};
   width: 100%;
   padding: 0.8em;
   h1 {
