@@ -4,6 +4,8 @@ export const StyledHeader = styled.header`
   position: fixed;
   top: 0;
   display: grid;
+  width: 100%;
+  padding: 0.8em;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(4, 1fr);
   grid-gap: 0.5em;
@@ -14,8 +16,7 @@ export const StyledHeader = styled.header`
   background-position: center;
   background-blend-mode: multiply;
   background-color: ${({ theme }) => theme.colors.bgClr};
-  width: 100%;
-  padding: 0.8em;
+  z-index: 100;
   h1 {
     grid-area: 1/1/1/11;
   }

@@ -3,16 +3,16 @@ import WeatherCard from "./WeatherCard";
 export default function Cards(props) {
   return (
     <StyledList>
-      {props.weatherItems.map((weather) => (
+      {props.weatherItems.map((weather,main,id,name) => (
         <WeatherCard
-          key={weather.id}
-          city={weather.city}
+          key={id}
+          city={name}
           description={weather.description}
           icon={weather.icon}
-          currentTemp={weather.currentTemp}
-          minTemp={weather.minTemp}
-          maxTemp={weather.maxTemp}
-          humidity={weather.humidity}
+          currentTemp={main.temp}
+          minTemp={main.temp_min}
+          maxTemp={main.temp_max}
+          humidity={main.humidity}
         />
       ))}
     </StyledList>

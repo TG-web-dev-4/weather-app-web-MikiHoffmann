@@ -2,7 +2,7 @@ import { ThemeProvider } from "styled-components";
 import { themeDark } from "../styles/Themes";
 
 import { StyledCard } from "../styledElements/Card.styled";
-import { IconContainer } from "../styledElements/IconContainer";
+import { IconContainer } from "../styledElements/IconContainer.styled";
 import { SectionTitle } from "../styledElements/Titles.styled";
 import { SubTitle } from "../styledElements/Titles.styled";
 

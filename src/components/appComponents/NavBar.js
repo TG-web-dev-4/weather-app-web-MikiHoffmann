@@ -6,7 +6,7 @@ export default function NavBar() {
     <StyledNavBar>
       <ul>
         <li>
-          <Link to="/">My City</Link>
+          <Link to="/">My Location</Link>
         </li>
         <li>
           <Link to="/WeatherOverview">Overview</Link>
