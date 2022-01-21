@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const MainTitle = styled.h1`
   width: 100%;
+  margin-bottom: .2em;
   color: ${({ theme }) => theme.colors.titleClr};
   text-align: center;
 `;
