@@ -1,0 +1,33 @@
+.weatherCard {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 1em auto;
+    padding: 1em;
+    background-image: url(../images/sunCloudsBlueSky.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 6px;
+    box-shadow: 3px 3px 6px rgb(0,0,0);
+    .subTitle {
+        padding: .5em;
+        font-size: 1.3em;
+        text-align: center;
+        background-color: rgba(255,255,255,0.5);
+        box-shadow: 3px 3px 6px rgb(0,0,0);
+    }
+    .iconContainer {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        margin: .6em;
+        img {
+            grid-area: 1/3/6/6;
+            width: 100%;
+        }
+        h2 {
+            grid-area: 3/2/6/5;
+        }
+    }
+}

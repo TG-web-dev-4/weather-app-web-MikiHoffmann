@@ -1,0 +1,30 @@
+.searchBar {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: .6em;
+    padding: 1em;
+    input {
+        grid-row: 1;
+        padding: .3em;
+        background-color: transparent;
+        font-size: 1.1em;
+        color: rgb(255,255,255);
+        border: none;
+        border-bottom: 1px solid rgb(255,255,255);
+        border-radius: 5px;
+        box-shadow: inset 1px 1px 3px rgb(0,0,0);
+        &::placeholder {
+            color: rgb(255,255,255);
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+    button {
+        grid-row: 2;
+        background-color: darkorange;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 1px 1px 3px rgb(0,0,0);
+    }
+}

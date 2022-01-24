@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+    width: 100%;
+}
+body {
+    height: 100%;
+    background-color: rgb(118, 118, 228);
+    background-image: url(../images/sunCloudsBlueSky.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1em;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}

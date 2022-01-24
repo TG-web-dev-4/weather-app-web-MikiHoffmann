@@ -18,6 +18,7 @@ const UseFetch = (initialUrl) => {
         setIsLoading(false);
         if (data.cod >= 400) {
           setError(data.message);
+          console.log(data)
           return;
         }
         setData(data);
