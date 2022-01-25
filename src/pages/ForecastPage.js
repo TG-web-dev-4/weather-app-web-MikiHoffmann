@@ -7,7 +7,6 @@ export default function ForecastPage({ forecast, cityName }) {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
 
-
   useEffect(() => {
     if (!cityName) return;
     if (!forecast) return;
@@ -58,10 +57,15 @@ export default function ForecastPage({ forecast, cityName }) {
           <h2>please select your city</h2>
         </div>
       );
-        console.log(forecast)
+    console.log(forecast);
     console.log(forecastData);
-    return <WeatherList forecastData={forecastData}/>;
+    return <WeatherList forecastData={forecastData} />;
   };
 
-  return <div>{getForecast()}</div>;
+  return (
+    <>
+      <h2 className="mainTitle">{cityName}</h2>
+      <div className="weatherCard">{getForecast()}</div>
+    </>
+  );
 }

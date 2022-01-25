@@ -1,0 +1,8 @@
+.forecastListItem {
+    display:flex;
+    flex-direction: row;
+    border-bottom: 1px solid rgb(0,0,0);
+    img {
+        height: 3em;
+    }
+}

@@ -3,19 +3,15 @@ const WeatherList = ({ forecastData }) => {
     <ul>
       {forecastData &&
         forecastData?.daily.map((day) => (
-          <li key={day.dt}>
-            <div className="weatherCard">
-              <p>{day.dt.toLocaleString()}</p>
-              <div className="iconContainer">
-                <h2>{day.weather[0].main}</h2>
-                <img
-                  src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
-                  alt={day.weather[0].description}
-                />
-              </div>
+          <li className="forecastListItem" key={day.dt}>
+            <p>{day.dt.toLocaleString()}</p>
 
-              <p>Temp: {day.temp.day}&deg;C</p>
-            </div>
+            <h2>{day.weather[0].main}</h2>
+            <img
+              src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
+              alt={day.weather[0].description}
+            />
+            <p>Temp: {day.temp.day}&deg;C</p>
           </li>
         ))}
     </ul>

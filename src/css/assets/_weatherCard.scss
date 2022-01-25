@@ -1,14 +1,9 @@
 .weatherCard {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 100%;
     margin: 1em auto;
     padding: 1em;
-    background-image: url(../images/sunCloudsBlueSky.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 6px;
     box-shadow: 3px 3px 6px rgb(0,0,0);
     .subTitle {
         padding: .5em;
@@ -24,7 +19,7 @@
         margin: .6em;
         img {
             grid-area: 1/3/6/6;
-            width: 100%;
+            width: 8em;
         }
         h2 {
             grid-area: 3/2/6/5;

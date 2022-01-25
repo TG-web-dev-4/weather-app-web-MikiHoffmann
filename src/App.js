@@ -5,7 +5,7 @@ import DetailsPage from "./pages/DetailsPage";
 import ForecastPage from "./pages/ForecastPage";
 import SearchBar from "./components/SearchBar";
 import UseFetch from "./hooks/UseFetch";
-import {detailsWeatherUrl} from './apiurls/ApiUrls'
+import { detailsWeatherUrl } from "./apiurls/ApiUrls";
 import { ForecastWeatherUrl } from "./apiurls/ApiUrls";
 function App() {
   const apiUrl = process.env.REACT_APP_API_URL;
@@ -43,7 +43,7 @@ function App() {
         </div>
       );
     console.log(data);
-    console.log('LAT:', latitude,'LON:', longitude);
+    console.log("LAT:", latitude, "LON:", longitude);
     return (
       <div className="weatherCard">
         <h2 className="subTitle">{cityName}</h2>
@@ -66,7 +66,7 @@ function App() {
     );
   };
   const excludeDetails = "minutely,alert";
-  const excludeForecast = "current,minutely,hourly,alert";
+  const excludeForecast = "minutely,hourly,alert";
   const details = detailsWeatherUrl(
     apiUrl,
     longitude,
@@ -83,28 +83,32 @@ function App() {
   );
   return (
     <>
-      <div className="mainTitle">
-        <h1>My weather</h1>
+      <div className="section">
+        <div className="mainTitle">
+          <h1>My weather</h1>
+        </div>
+        <SearchBar
+          getWeatherData={(city) =>
+            setUrl(
+              `${apiUrl}/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
+            )
+          }
+        />
+        <NavBar />
       </div>
-      <SearchBar
-        getWeatherData={(city) =>
-          setUrl(
-            `${apiUrl}/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
-          )
-        }
-      />
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<CityPage getContent={getContent} />} />
-        <Route
-          path="/DetailsPage"
-          element={<DetailsPage details={details} cityName={cityName} />}
-        />
-        <Route
-          path="/ForecastPage"
-          element={<ForecastPage forecast={forecast} cityName={cityName} />}
-        />
-      </Routes>
+      <div className="section">
+        <Routes>
+          <Route path="/" element={<CityPage getContent={getContent} />} />
+          <Route
+            path="/DetailsPage"
+            element={<DetailsPage details={details} cityName={cityName} />}
+          />
+          <Route
+            path="/ForecastPage"
+            element={<ForecastPage forecast={forecast} cityName={cityName} />}
+          />
+        </Routes>
+      </div>
     </>
   );
 }
