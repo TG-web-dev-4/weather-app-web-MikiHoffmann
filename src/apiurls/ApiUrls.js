@@ -1,12 +1,11 @@
-export const CurrentWeatherUrl = (apiUrl,city,apiKey) => {
+export const detailsWeatherUrl = (apiUrl,latitude,longitude,excludeDetails,apiKey) => {
     return (
-        `${apiUrl}/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
+        `${apiUrl}/data/2.5/onecall?units=metric&lat=${latitude}&lon=${longitude}&exclude=${excludeDetails}&appid=${apiKey}`
     )
 }
-
-export const ForecastWeatherUrl = (apiUrl,latitude,longitude,exclude,apiKey) => {
+export const ForecastWeatherUrl = (apiUrl,latitude,longitude,excludeForecast,apiKey) => {
     return (
-        `${apiUrl}/data/2.5/onecall?&lat=${latitude}&lon=${longitude}&units=metric&exclude=${exclude}&appid=${apiKey}`
+        `${apiUrl}/data/2.5/onecall?units=metric&lat=${latitude}&lon=${longitude}&exclude=${excludeForecast}&appid=${apiKey}`
     )
 }
 

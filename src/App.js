@@ -5,8 +5,8 @@ import DetailsPage from "./pages/DetailsPage";
 import ForecastPage from "./pages/ForecastPage";
 import SearchBar from "./components/SearchBar";
 import UseFetch from "./hooks/UseFetch";
+import {detailsWeatherUrl} from './apiurls/ApiUrls'
 import { ForecastWeatherUrl } from "./apiurls/ApiUrls";
-//import { useState } from "react";
 function App() {
   const apiUrl = process.env.REACT_APP_API_URL;
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -42,8 +42,8 @@ function App() {
           <h2>please select your city</h2>
         </div>
       );
-    //console.log(data);
-    console.log(latitude);
+    console.log(data);
+    console.log('LAT:', latitude,'LON:', longitude);
     return (
       <div className="weatherCard">
         <h2 className="subTitle">{cityName}</h2>
@@ -67,7 +67,7 @@ function App() {
   };
   const excludeDetails = "minutely,alert";
   const excludeForecast = "current,minutely,hourly,alert";
-  const details = ForecastWeatherUrl(
+  const details = detailsWeatherUrl(
     apiUrl,
     longitude,
     latitude,
