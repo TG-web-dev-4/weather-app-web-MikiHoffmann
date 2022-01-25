@@ -1,22 +1,70 @@
-//import { useState } from "react";
-import UseFetch from "../hooks/UseFetch";
+import { useState, useEffect } from "react";
 
-export default function DetailsPage({ forecast, cityName }) {
-  const message = "please enter a city";
+export default function DetailsPage({ details, cityName }) {
 
-  const { data, error, isLoading, setUrl } = UseFetch();
-  const test = () => {
-   
+  const message = "please do enter a city";
+  const [detailsData, setDetailsData] = useState(null);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(null);
+  
+  useEffect (() => {
+    if (!cityName) return
+    if (!details) return;
+    setIsLoading(true);
+    setDetailsData(null);
+    setError(null);
+
+    fetch(details)
+      .then((response) => response.json())
+      .then((detailsData) => {
+        setIsLoading(false);
+        if (detailsData.cod >= 400) {
+          setError(detailsData.message);
+          console.log(detailsData)
+          return;
+        }
+        setDetailsData(detailsData);
+        //console.log(detailsData)
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setError(error);
+      });
+  },[details, cityName])
+    
+  
+
+  const getDetails = () => {
     if (!cityName)
+    return (
+      <div className="weatherCard">
+        <h2>{message}</h2>
+      </div>
+    );
+    if (error)
       return (
         <div className="weatherCard">
-          <h2>{message}</h2>
+          <h2>Error when fetching: {error}</h2>
         </div>
       );
-      setUrl(forecast)
-    return data
-  };
-  console.log(data);
+    if (!detailsData && isLoading)
+      return (
+        <div className="weatherCard">
+          <h2>LOADING...</h2>
+        </div>
+      );
+    if (!detailsData)
+      return (
+        <div className="weatherCard">
+          <h2>please select your city</h2>
+        </div>
+      );
 
-  return <div>{test()}</div>;
+    //console.log(details);
+    //return data;
+  };
+
+
+
+  return <div>{getDetails()}</div>;
 }

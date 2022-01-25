@@ -65,16 +65,22 @@ function App() {
       </div>
     );
   };
-  const exclude = "current,minutely,alert";
-
+  const excludeDetails = "minutely,alert";
+  const excludeForecast = "current,minutely,hourly,alert";
+  const details = ForecastWeatherUrl(
+    apiUrl,
+    longitude,
+    latitude,
+    excludeDetails,
+    apiKey
+  );
   const forecast = ForecastWeatherUrl(
     apiUrl,
     longitude,
     latitude,
-    exclude,
+    excludeForecast,
     apiKey
   );
-
   return (
     <>
       <div className="mainTitle">
@@ -92,10 +98,12 @@ function App() {
         <Route path="/" element={<CityPage getContent={getContent} />} />
         <Route
           path="/DetailsPage"
-          element={<DetailsPage forecast={forecast} 
-          cityName={cityName}/>}
+          element={<DetailsPage details={details} cityName={cityName} />}
         />
-        <Route path="/ForecastPage" element={<ForecastPage />} />
+        <Route
+          path="/ForecastPage"
+          element={<ForecastPage forecast={forecast} cityName={cityName} />}
+        />
       </Routes>
     </>
   );
