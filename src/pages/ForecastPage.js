@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import WeatherList from "../components/WeatherList";
+import WeatherForecastList from "../components/WeatherForecastList";
 
 export default function ForecastPage({ forecast, cityName }) {
   const message = "please do enter a city";
@@ -59,12 +59,11 @@ export default function ForecastPage({ forecast, cityName }) {
       );
     console.log(forecast);
     console.log(forecastData);
-    return <WeatherList forecastData={forecastData} />;
+    return <WeatherForecastList forecastData={forecastData} />;
   };
 
   return (
     <>
-      <h2 className="mainTitle">{cityName}</h2>
       <div className="weatherCard">{getForecast()}</div>
     </>
   );

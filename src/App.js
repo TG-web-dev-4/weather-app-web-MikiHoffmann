@@ -7,6 +7,7 @@ import SearchBar from "./components/SearchBar";
 import UseFetch from "./hooks/UseFetch";
 import { detailsWeatherUrl } from "./apiurls/ApiUrls";
 import { ForecastWeatherUrl } from "./apiurls/ApiUrls";
+import {ConvertDate} from "./components/ConvertDate"
 function App() {
   const apiUrl = process.env.REACT_APP_API_URL;
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -46,10 +47,13 @@ function App() {
     console.log("LAT:", latitude, "LON:", longitude);
     return (
       <div className="weatherCard">
-        <h2 className="subTitle">{cityName}</h2>
         <p>
-          {today.toLocaleDateString()} - {today.toLocaleTimeString()}
+          {<ConvertDate date={data.dt}/>}
         </p>
+        <p>
+          {today.toLocaleTimeString()}
+        </p>
+        
         <div className="iconContainer">
           <h2>{sky}</h2>
           <img
@@ -58,32 +62,33 @@ function App() {
           />
         </div>
 
-        <p>Temp: {temp}&deg;C</p>
+        <p className="mainTemp">Temp: {temp}&deg;C</p>
         <p>Min: {tempMin}&deg;C</p>
         <p>Min: {tempMax}&deg;C</p>
-        <p>Humidity: {humidity}&deg;C</p>
+        <p>Humidity: {humidity}&#37;</p>
       </div>
     );
   };
-  const excludeDetails = "minutely,alert";
-  const excludeForecast = "minutely,hourly,alert";
+  const excludeDetails = "daily,minutely,alert";
+  const excludeForecast = "current,minutely,hourly,alert";
   const details = detailsWeatherUrl(
     apiUrl,
-    longitude,
     latitude,
+    longitude,
     excludeDetails,
     apiKey
   );
   const forecast = ForecastWeatherUrl(
     apiUrl,
-    longitude,
     latitude,
+    longitude,
     excludeForecast,
     apiKey
   );
   return (
     <>
-      <div className="section">
+    <main>
+    <div className="section sectionTop">
         <div className="mainTitle">
           <h1>My weather</h1>
         </div>
@@ -95,8 +100,10 @@ function App() {
           }
         />
         <NavBar />
+        
+      <h2 className="mainTitle">{cityName}</h2>
       </div>
-      <div className="section">
+      <div className="section sectionBottom">
         <Routes>
           <Route path="/" element={<CityPage getContent={getContent} />} />
           <Route
@@ -109,6 +116,8 @@ function App() {
           />
         </Routes>
       </div>
+    </main>
+      
     </>
   );
 }

@@ -12,8 +12,10 @@ html {
 
 body {
   height: 100%;
+  height: 100%;
   background-color: #7676e4;
   background-image: url(../images/sunCloudsBlueSky.jpg);
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -25,6 +27,24 @@ body {
 img {
   height: auto;
   max-width: 100%;
+}
+
+.sectionTop {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 15em;
+  background-color: #7676e4;
+  background-image: url(../images/sunCloudsBlueSky.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: multiply;
+}
+
+.sectionBottom {
+  margin-top: 15em;
 }
 
 .mainTitle {
@@ -50,15 +70,25 @@ img {
   padding: 1em;
   -webkit-box-shadow: 3px 3px 6px black;
           box-shadow: 3px 3px 6px black;
+  overflow: hidden;
 }
 
 .weatherCard .subTitle {
   padding: .5em;
   font-size: 1.3em;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.5);
   -webkit-box-shadow: 3px 3px 6px black;
           box-shadow: 3px 3px 6px black;
+}
+
+.weatherCard p {
+  width: 100%;
+  margin-top: .5em;
+  text-align: center;
+}
+
+.weatherCard .mainTemp {
+  font-size: 3em;
 }
 
 .weatherCard .iconContainer {
@@ -192,11 +222,27 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: .4em;
+  border-bottom: 1px solid black;
+  -webkit-box-shadow: 2px 2px 4px black;
+          box-shadow: 2px 2px 4px black;
+}
+
+.forecastListItem div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  border-bottom: 1px solid black;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .forecastListItem img {

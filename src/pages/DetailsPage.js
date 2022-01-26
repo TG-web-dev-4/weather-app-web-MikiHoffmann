@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
+import WeatherDetailsList from "../components/WeatherDetailsList";
 
 export default function DetailsPage({ details, cityName }) {
-
   const message = "please do enter a city";
   const [detailsData, setDetailsData] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
-  
-  useEffect (() => {
-    if (!cityName) return
+
+  useEffect(() => {
+    if (!cityName) return;
     if (!details) return;
     setIsLoading(true);
     setDetailsData(null);
@@ -20,27 +20,25 @@ export default function DetailsPage({ details, cityName }) {
         setIsLoading(false);
         if (detailsData.cod >= 400) {
           setError(detailsData.message);
-          console.log(detailsData)
+          console.log(detailsData);
           return;
         }
         setDetailsData(detailsData);
-        //console.log(detailsData)
+        console.log(detailsData);
       })
       .catch((error) => {
         setIsLoading(false);
         setError(error);
       });
-  },[details, cityName])
-    
-  
+  }, [details, cityName]);
 
   const getDetails = () => {
     if (!cityName)
-    return (
-      <div className="weatherCard">
-        <h2>{message}</h2>
-      </div>
-    );
+      return (
+        <div className="weatherCard">
+          <h2>{message}</h2>
+        </div>
+      );
     if (error)
       return (
         <div className="weatherCard">
@@ -60,11 +58,13 @@ export default function DetailsPage({ details, cityName }) {
         </div>
       );
 
-    //console.log(details);
-    //return data;
+    console.log(detailsData);
+    return <WeatherDetailsList detailsData={detailsData} />;
   };
 
-
-
-  return <div>{getDetails()}</div>;
+  return (
+    <>
+      <div className="weathercard">{getDetails()}</div>
+    </>
+  );
 }

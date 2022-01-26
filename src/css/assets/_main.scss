@@ -9,8 +9,10 @@ html {
 }
 body {
     height: 100%;
+    height: 100%;
     background-color: rgb(118, 118, 228);
     background-image: url(../images/sunCloudsBlueSky.jpg);
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -21,4 +23,21 @@ body {
 img {
     height: auto;
     max-width: 100%;
+}
+.sectionTop {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 15em;
+    background-color: rgb(118, 118, 228);
+    background-image: url(../images/sunCloudsBlueSky.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+.sectionBottom {
+    margin-top: 15em;
+
 }
