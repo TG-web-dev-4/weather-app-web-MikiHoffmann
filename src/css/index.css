@@ -232,7 +232,7 @@ img {
           box-shadow: 2px 2px 4px black;
 }
 
-.forecastListItem div {
+.forecastListItem .container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -240,12 +240,26 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 .forecastListItem img {
   height: 3em;
+}
+
+.forecastListItem .content {
+  display: none;
+  height: 0;
+  overflow: hidden;
+}
+
+.forecastListItem .container:hover {
+  cursor: pointer;
+}
+
+.forecastListItem .container .active .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
 }
 /*# sourceMappingURL=index.css.map */

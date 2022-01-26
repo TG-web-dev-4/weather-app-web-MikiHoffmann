@@ -4,12 +4,28 @@
     padding: .4em;
     border-bottom: 1px solid rgb(0,0,0);
     box-shadow: 2px 2px 4px rgb(0,0,0);
-    div {
+    .container {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
     }
     img {
         height: 3em;
     }
+    .content {
+        display: none;
+        height: 0;
+        overflow: hidden;
+    }
+    .container:hover {
+        cursor: pointer;
+    }
+    .container .active {
+        
+        .content {
+            display: flex;
+            height: 100%;
+        }
+        
+    }
+    
 }

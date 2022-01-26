@@ -1,13 +1,18 @@
 import { Routes, Route } from "react-router-dom";
-import NavBar from "./components/NavBar";
+
 import CityPage from "./pages/CurrentPage";
 import DetailsPage from "./pages/DetailsPage";
 import ForecastPage from "./pages/ForecastPage";
-import SearchBar from "./components/SearchBar";
+
 import UseFetch from "./hooks/UseFetch";
+
 import { detailsWeatherUrl } from "./apiurls/ApiUrls";
 import { ForecastWeatherUrl } from "./apiurls/ApiUrls";
-import {ConvertDate} from "./components/ConvertDate"
+
+import SearchBar from "./components/SearchBar";
+import NavBar from "./components/NavBar";
+import { ConvertDate } from "./components/ConvertDate";
+
 function App() {
   const apiUrl = process.env.REACT_APP_API_URL;
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -43,17 +48,13 @@ function App() {
           <h2>please select your city</h2>
         </div>
       );
-    console.log(data);
-    console.log("LAT:", latitude, "LON:", longitude);
+    //console.log(data);
+    //console.log("LAT:", latitude, "LON:", longitude);
     return (
       <div className="weatherCard">
-        <p>
-          {<ConvertDate date={data.dt}/>}
-        </p>
-        <p>
-          {today.toLocaleTimeString()}
-        </p>
-        
+        <p>{<ConvertDate date={data.dt} />}</p>
+        <p>{today.toLocaleTimeString()}</p>
+
         <div className="iconContainer">
           <h2>{sky}</h2>
           <img
@@ -87,37 +88,36 @@ function App() {
   );
   return (
     <>
-    <main>
-    <div className="section sectionTop">
-        <div className="mainTitle">
-          <h1>My weather</h1>
+      <main>
+        <div className="section sectionTop">
+          <div className="mainTitle">
+            <h1>My weather</h1>
+          </div>
+          <SearchBar
+            getWeatherData={(city) =>
+              setUrl(
+                `${apiUrl}/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
+              )
+            }
+          />
+          <NavBar />
+
+          <h2 className="mainTitle">{cityName}</h2>
         </div>
-        <SearchBar
-          getWeatherData={(city) =>
-            setUrl(
-              `${apiUrl}/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
-            )
-          }
-        />
-        <NavBar />
-        
-      <h2 className="mainTitle">{cityName}</h2>
-      </div>
-      <div className="section sectionBottom">
-        <Routes>
-          <Route path="/" element={<CityPage getContent={getContent} />} />
-          <Route
-            path="/DetailsPage"
-            element={<DetailsPage details={details} cityName={cityName} />}
-          />
-          <Route
-            path="/ForecastPage"
-            element={<ForecastPage forecast={forecast} cityName={cityName} />}
-          />
-        </Routes>
-      </div>
-    </main>
-      
+        <div className="section sectionBottom">
+          <Routes>
+            <Route path="/" element={<CityPage getContent={getContent} />} />
+            <Route
+              path="/DetailsPage"
+              element={<DetailsPage details={details} cityName={cityName} />}
+            />
+            <Route
+              path="/ForecastPage"
+              element={<ForecastPage forecast={forecast} cityName={cityName} />}
+            />
+          </Routes>
+        </div>
+      </main>
     </>
   );
 }
