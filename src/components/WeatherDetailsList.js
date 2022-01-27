@@ -16,8 +16,8 @@ const WeatherDetailsList = ({ detailsData }) => {
     detailsData?.hourly.map((hour, index) => {
       const active = index === activeIndex ? "active" : "";
       return (
-        <li className="forecastListItem" key={hour.dt}>
-          <div className={`container ${active}`} onClick={() => onClickBanner(index)}>
+        <li className="listItem" key={hour.dt}>
+          <div className={`accordionTitle ${active}`} onClick={() => onClickBanner(index)}>
             <span>
               <ConvertTime time={hour.dt} />
             </span>
@@ -28,14 +28,14 @@ const WeatherDetailsList = ({ detailsData }) => {
             />
             <p>Temp: {hour.feels_like}&deg;C</p>
           </div>
-          <div className={`content ${active}`}>
+          <div className={`accordionContent ${active}`}>
             <span>humidity: {hour.humidity} &#37;</span>
             <span>wind speed: {hour.humidity} bfr</span>
           </div>
         </li>
       );
     });
-  return <ul>{detailList}</ul>;
+  return <ul className="weatherCard">{detailList}</ul>;
 };
 
 export default WeatherDetailsList;

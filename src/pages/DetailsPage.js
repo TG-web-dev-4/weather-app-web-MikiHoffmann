@@ -62,9 +62,5 @@ export default function DetailsPage({ details, cityName }) {
     return <WeatherDetailsList detailsData={detailsData} />;
   };
 
-  return (
-    <>
-      <div className="weathercard">{getDetails()}</div>
-    </>
-  );
+  return <>{getDetails()}</>;
 }

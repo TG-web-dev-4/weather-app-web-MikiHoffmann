@@ -88,7 +88,7 @@ function App() {
   );
   return (
     <>
-      <main>
+      <div className={`appContainer background ${sky}`}>
         <div className="section sectionTop">
           <div className="mainTitle">
             <h1>My weather</h1>
@@ -101,7 +101,6 @@ function App() {
             }
           />
           <NavBar />
-
           <h2 className="mainTitle">{cityName}</h2>
         </div>
         <div className="section sectionBottom">
@@ -117,7 +116,7 @@ function App() {
             />
           </Routes>
         </div>
-      </main>
+      </div>
     </>
   );
 }

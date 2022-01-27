@@ -62,9 +62,5 @@ export default function ForecastPage({ forecast, cityName }) {
     return <WeatherForecastList forecastData={forecastData} />;
   };
 
-  return (
-    <>
-      <div className="weatherCard">{getForecast()}</div>
-    </>
-  );
+  return <>{getForecast()}</>;
 }

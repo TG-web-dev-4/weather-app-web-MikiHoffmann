@@ -13,15 +13,46 @@ html {
 body {
   height: 100%;
   height: 100%;
-  background-color: #7676e4;
-  background-image: url(../images/sunCloudsBlueSky.jpg);
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-blend-mode: multiply;
+  background-color: white;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 1em;
+}
+
+.root {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.appContainer {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 31.25em) {
+  .appContainer {
+    height: 90%;
+    width: 90%;
+    margin: auto;
+    border: 2px solid white;
+    -webkit-box-shadow: 3px 3px 6px black;
+            box-shadow: 3px 3px 6px black;
+  }
+}
+
+@media only screen and (min-width: 47em) {
+  .appContainer {
+    width: 60%;
+  }
 }
 
 img {
@@ -30,12 +61,19 @@ img {
 }
 
 .sectionTop {
-  position: fixed;
+  position: relative;
   top: 0;
   width: 100%;
   height: 15em;
+}
+
+.sectionBottom {
+  position: relative;
+  height: 100%;
+}
+
+.background {
   background-color: #7676e4;
-  background-image: url(../images/sunCloudsBlueSky.jpg);
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -43,8 +81,20 @@ img {
   background-blend-mode: multiply;
 }
 
-.sectionBottom {
-  margin-top: 15em;
+.Clear {
+  background-image: url(../images/clearSky.png);
+}
+
+.Clouds {
+  background-image: url(../images/Clouds.jpeg);
+}
+
+.drizzle {
+  background-image: url(../images/sunCloudsBlueSky.jpg);
+}
+
+.rain {
+  background-image: url(../images/sunCloudsBlueSky.jpg);
 }
 
 .mainTitle {
@@ -58,6 +108,7 @@ img {
 }
 
 .weatherCard {
+  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -66,11 +117,12 @@ img {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
+  height: 20em;
   margin: 1em auto;
   padding: 1em;
   -webkit-box-shadow: 3px 3px 6px black;
           box-shadow: 3px 3px 6px black;
-  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .weatherCard .subTitle {
@@ -121,8 +173,8 @@ img {
 .searchBar {
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 1fr;
-      grid-template-rows: 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
   -ms-grid-columns: (1fr)[10];
       grid-template-columns: repeat(10, 1fr);
   grid-gap: .8em;
@@ -130,9 +182,11 @@ img {
 }
 
 .searchBar input {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 8;
-  grid-column: 1/9;
+  -ms-grid-column-span: 10;
+  grid-area: 1/1/2/11;
   width: 100%;
   padding: .3em;
   background-color: transparent;
@@ -164,9 +218,11 @@ img {
 }
 
 .searchBar button {
-  -ms-grid-column: 9;
-  -ms-grid-column-span: 2;
-  grid-column: 9/11;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 10;
+  grid-area: 2/1/3/11;
   width: 100%;
   padding: .5em;
   background-color: darkorange;
@@ -177,7 +233,27 @@ img {
   cursor: pointer;
 }
 
+@media only screen and (min-width: 31.25em) {
+  .searchBar {
+    -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr;
+  }
+  .searchBar input {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 7;
+    grid-area: 1/1/1/8;
+  }
+  .searchBar button {
+    -ms-grid-row: 1;
+    -ms-grid-column: 8;
+    -ms-grid-column-span: 3;
+    grid-area: 1/8/1/11;
+  }
+}
+
 .navBar {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -189,7 +265,7 @@ img {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   width: 100%;
-  padding: .5em;
+  padding: 0.5em;
 }
 
 .navBar ul {
@@ -218,7 +294,8 @@ img {
   color: white;
 }
 
-.forecastListItem {
+.listItem {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -226,13 +303,18 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: .4em;
+  width: 100%;
+  height: 6em;
+  padding: 0.4em;
   border-bottom: 1px solid black;
   -webkit-box-shadow: 2px 2px 4px black;
           box-shadow: 2px 2px 4px black;
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
 }
 
-.forecastListItem .container {
+.listItem .accordionTitle {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -240,26 +322,93 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  -webkit-animation: showContent 0.3s ease-in-out;
+          animation: showContent 0.3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
-.forecastListItem img {
-  height: 3em;
-}
-
-.forecastListItem .content {
-  display: none;
-  height: 0;
-  overflow: hidden;
-}
-
-.forecastListItem .container:hover {
+.listItem .accordionTitle:hover {
   cursor: pointer;
+  -webkit-filter: opacity(0.8);
+          filter: opacity(0.8);
 }
 
-.forecastListItem .container .active .content {
+.listItem .accordionTitle::after {
+  position: absolute;
+  content: "";
+  -webkit-transition: -webkit-filter 0.3s ease-in-out;
+  transition: -webkit-filter 0.3s ease-in-out;
+  transition: filter 0.3s ease-in-out;
+  transition: filter 0.3s ease-in-out, -webkit-filter 0.3s ease-in-out;
+}
+
+.listItem .accordionContent {
+  position: relative;
+  display: none;
+  width: 100%;
+  height: 0;
+  -webkit-animation: showContent 0.3s ease-in-out;
+          animation: showContent 0.3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.listItem .accordionTitle.active {
+  color: white;
+}
+
+.listItem .accordionContent.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   height: 100%;
+  color: white;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.listItem img {
+  height: 3em;
+}
+
+@-webkit-keyframes showContent {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-1em);
+            transform: translateY(-1em);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes showContent {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-1em);
+            transform: translateY(-1em);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
 }
 /*# sourceMappingURL=index.css.map */
