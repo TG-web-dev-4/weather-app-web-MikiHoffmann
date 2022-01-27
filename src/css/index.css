@@ -1,0 +1,487 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  height: 100%;
+  background-color: white;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1em;
+  color: white;
+}
+
+.root {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.appContainer {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 31.25em) {
+  .appContainer {
+    height: 90%;
+    width: 90%;
+    margin: auto;
+    border: 2px solid white;
+    -webkit-box-shadow: 5px 5px 9px black, 0px 0px 4px black;
+            box-shadow: 5px 5px 9px black, 0px 0px 4px black;
+  }
+}
+
+@media only screen and (min-width: 47em) {
+  .appContainer {
+    width: 60%;
+  }
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+.section {
+  width: 100%;
+}
+
+.sectionTop {
+  position: relative;
+  top: 0;
+  height: 15em;
+}
+
+.sectionBottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  height: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 1em;
+}
+
+::-webkit-scrollbar-track {
+  background-color: white;
+  -webkit-box-shadow: inset 3px 3px 5px black;
+          box-shadow: inset 3px 3px 5px black;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: darkorange;
+  -webkit-box-shadow: inset 3px 3px 5px black;
+          box-shadow: inset 3px 3px 5px black;
+}
+
+.background {
+  background-color: #7676e4;
+  background-image: url(../images/sunCloudsBlueSky.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: multiply;
+}
+
+.Clear {
+  background-image: url(../images/clearSky.png);
+}
+
+.Clouds {
+  background-image: url(../images/Clouds.jpeg);
+}
+
+.Drizzle {
+  background-image: url(../images/Drizzle.jpg);
+}
+
+.Rain {
+  background-image: url(../images/Rain.jpg);
+}
+
+.Thunderstorm {
+  background-image: url(../images/Thunderstorm.jpg);
+}
+
+.Snow {
+  background-image: url(../images/Snow.jpg);
+}
+
+.Mist, .Haze {
+  background-image: url(../images/Mist.jpg);
+}
+
+.mainTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: .6em;
+}
+
+.mainTemp {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  font-size: 3em;
+}
+
+.weatherCard {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 90%;
+  height: 20em;
+  margin: 1em auto;
+  padding: 1em;
+  -webkit-box-shadow: 3px 3px 6px black;
+          box-shadow: 3px 3px 6px black;
+  overflow-y: auto;
+}
+
+.weatherCard .subTitle {
+  padding: .5em;
+  font-size: 1.3em;
+  text-align: center;
+  -webkit-box-shadow: 3px 3px 6px black;
+          box-shadow: 3px 3px 6px black;
+}
+
+.weatherCard p {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-top: .5em;
+  text-align: center;
+}
+
+.weatherCard .iconContainer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  -ms-grid-rows: (1fr)[5];
+      grid-template-rows: repeat(5, 1fr);
+  margin: .6em;
+}
+
+.weatherCard .iconContainer img {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 5;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 3;
+  grid-area: 1/3/6/6;
+  width: 8em;
+}
+
+.weatherCard .iconContainer h2 {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
+  grid-area: 3/2/6/5;
+}
+
+.subInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.errorMessage {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.errorMessage h2 {
+  width: 100%;
+  text-align: center;
+}
+
+.searchBar {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  -ms-grid-columns: (1fr)[10];
+      grid-template-columns: repeat(10, 1fr);
+  grid-gap: .8em;
+  padding: 1em;
+}
+
+.searchBar input {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 10;
+  grid-area: 1/1/2/11;
+  width: 100%;
+  padding: .3em;
+  background-color: transparent;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.1em;
+  color: white;
+  border: none;
+  border-bottom: 1px solid white;
+}
+
+.searchBar input::-webkit-input-placeholder {
+  color: white;
+}
+
+.searchBar input:-ms-input-placeholder {
+  color: white;
+}
+
+.searchBar input::-ms-input-placeholder {
+  color: white;
+}
+
+.searchBar input::placeholder {
+  color: white;
+}
+
+.searchBar input:focus {
+  outline: none;
+}
+
+.searchBar button {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 10;
+  grid-area: 2/1/3/11;
+  width: 100%;
+  padding: .5em;
+  background-color: darkorange;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border: none;
+  -webkit-box-shadow: 1px 1px 3px black;
+          box-shadow: 1px 1px 3px black;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 31.25em) {
+  .searchBar {
+    -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr;
+  }
+  .searchBar input {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 7;
+    grid-area: 1/1/1/8;
+  }
+  .searchBar button {
+    -ms-grid-row: 1;
+    -ms-grid-column: 8;
+    -ms-grid-column-span: 3;
+    grid-area: 1/8/1/11;
+  }
+}
+
+.navBar {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 100%;
+  padding: 0.5em;
+}
+
+.navBar ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 100%;
+}
+
+.navBar ul li {
+  display: inline-block;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.navBar ul a {
+  text-decoration: none;
+  font-size: 1.5em;
+  color: white;
+}
+
+.listItem {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 6em;
+  padding: 0.4em;
+  border-bottom: 1px solid black;
+  -webkit-box-shadow: 2px 2px 4px black;
+          box-shadow: 2px 2px 4px black;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  -webkit-animation: showContent 0.3s ease-in-out;
+          animation: showContent 0.3s ease-in-out;
+}
+
+.listItem .accordionTitle {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  -webkit-animation: showContent 0.3s ease-in-out;
+          animation: showContent 0.3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.listItem .accordionTitle:hover {
+  cursor: pointer;
+  -webkit-filter: opacity(0.8);
+          filter: opacity(0.8);
+}
+
+.listItem .accordionTitle::after {
+  position: absolute;
+  content: "";
+  -webkit-transition: -webkit-filter 0.3s ease-in-out;
+  transition: -webkit-filter 0.3s ease-in-out;
+  transition: filter 0.3s ease-in-out;
+  transition: filter 0.3s ease-in-out, -webkit-filter 0.3s ease-in-out;
+}
+
+.listItem .accordionContent {
+  position: relative;
+  display: none;
+  width: 100%;
+  height: 0;
+  -webkit-animation: showContent 0.3s ease-in-out;
+          animation: showContent 0.3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.listItem .accordionTitle.active {
+  color: darkorange;
+}
+
+.listItem .accordionContent.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+  color: white;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.listItem img {
+  height: 3em;
+}
+
+@-webkit-keyframes showContent {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-1em);
+            transform: translateY(-1em);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes showContent {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-1em);
+            transform: translateY(-1em);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,43 @@
+.searchBar {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(10, 1fr);
+    grid-gap: .8em;
+    padding: 1em;
+    input {
+        grid-area: 1/1/2/11;
+        width: 100%;
+        padding: .3em;
+        background-color: transparent;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 1.1em;
+        color: rgb(255,255,255);
+        border: none;
+        border-bottom: 1px solid rgb(255,255,255);
+        &::placeholder {
+            color: rgb(255,255,255);
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+    button {
+        grid-area: 2/1/3/11;
+        width: 100%;
+        padding: .5em;
+        background-color: darkorange;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        border: none;
+        box-shadow: 1px 1px 3px rgb(0,0,0);
+        cursor: pointer;
+    }
+    @media only screen and (min-width: 31.25em) {
+        grid-template-rows: 1fr;
+        input {
+            grid-area: 1/1/1/8;
+        }
+        button {
+            grid-area: 1/8/1/11;
+        }
+    }
+}

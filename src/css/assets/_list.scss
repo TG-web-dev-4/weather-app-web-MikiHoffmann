@@ -1,0 +1,65 @@
+.listItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 6em;
+  padding: 0.4em;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  box-shadow: 2px 2px 4px rgb(0, 0, 0);
+  transition: all .3s ease-in-out;
+  animation: showContent 0.3s ease-in-out;
+
+  .accordionTitle {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    animation: showContent 0.3s ease-in-out;
+    transition: all .3s ease-in-out;
+    &:hover {
+      cursor: pointer;
+      filter: opacity(0.8);
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      transition: filter 0.3s ease-in-out;
+    }
+  }
+  .accordionContent {
+    position: relative;
+    display: none;
+    width: 100%;
+    height: 0;
+    animation: showContent 0.3s ease-in-out;
+    transition: all .3s ease-in-out;
+  }
+  .accordionTitle.active {
+    color: darkorange;
+    
+  }
+  .accordionContent.active {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%;
+    color: rgb(255, 255, 255);
+    transition: all .3s ease-in-out;
+  }
+  img {
+    height: 3em;
+  }
+  @keyframes showContent {
+    0% {
+        opacity: 0;
+      transform: translateY(-1em);
+    }
+    100% {
+        opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
