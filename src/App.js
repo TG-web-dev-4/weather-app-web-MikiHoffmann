@@ -28,23 +28,22 @@ function App() {
   const humidity = data?.main.humidity;
   const longitude = data?.coord.lon;
   const latitude = data?.coord.lat;
-
   const getContent = () => {
     if (error)
       return (
-        <div className="weatherCard">
-          <h2>Error when fetching: {error}</h2>
+        <div className="weatherCard errorMessage">
+          <h2>{error}, please enter an excisting city</h2>
         </div>
       );
     if (!data && isLoading)
       return (
-        <div className="weatherCard">
+        <div className="weatherCard errorMessage">
           <h2>LOADING...</h2>
         </div>
       );
     if (!data)
       return (
-        <div className="weatherCard">
+        <div className="weatherCard errorMessage">
           <h2>please select your city</h2>
         </div>
       );
@@ -52,8 +51,7 @@ function App() {
     //console.log("LAT:", latitude, "LON:", longitude);
     return (
       <div className="weatherCard">
-        <p>{<ConvertDate date={data.dt} />}</p>
-        <p>{today.toLocaleTimeString()}</p>
+        <p>{<ConvertDate date={data.dt} />} - {today.toLocaleTimeString()}</p>
 
         <div className="iconContainer">
           <h2>{sky}</h2>
@@ -62,11 +60,12 @@ function App() {
             alt={description}
           />
         </div>
-
-        <p className="mainTemp">Temp: {temp}&deg;C</p>
-        <p>Min: {tempMin}&deg;C</p>
-        <p>Min: {tempMax}&deg;C</p>
-        <p>Humidity: {humidity}&#37;</p>
+        <span className="mainTemp">Temp: {temp}&deg;C</span>
+        <div className="subInfo">
+          <p>Min: {tempMin}&deg;C</p>
+          <p>Max: {tempMax}&deg;C</p>
+          <p>Humidity: {humidity}&#37;</p>
+        </div>
       </div>
     );
   };
@@ -94,10 +93,12 @@ function App() {
             <h1>My weather</h1>
           </div>
           <SearchBar
-            getWeatherData={(city) =>
+            getWeatherData={(city) => {
               setUrl(
                 `${apiUrl}/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
               )
+            }
+              
             }
           />
           <NavBar />

@@ -30,7 +30,7 @@ const WeatherDetailsList = ({ detailsData }) => {
           </div>
           <div className={`accordionContent ${active}`}>
             <span>humidity: {hour.humidity} &#37;</span>
-            <span>wind speed: {hour.humidity} bfr</span>
+            <span>wind speed: {hour.wind_speed} km/hr</span>
           </div>
         </li>
       );

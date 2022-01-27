@@ -14,8 +14,9 @@ body {
   height: 100%;
   height: 100%;
   background-color: white;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 1em;
+  color: white;
 }
 
 .root {
@@ -44,8 +45,8 @@ body {
     width: 90%;
     margin: auto;
     border: 2px solid white;
-    -webkit-box-shadow: 3px 3px 6px black;
-            box-shadow: 3px 3px 6px black;
+    -webkit-box-shadow: 5px 5px 9px black, 0px 0px 4px black;
+            box-shadow: 5px 5px 9px black, 0px 0px 4px black;
   }
 }
 
@@ -60,20 +61,46 @@ img {
   max-width: 100%;
 }
 
+.section {
+  width: 100%;
+}
+
 .sectionTop {
   position: relative;
   top: 0;
-  width: 100%;
   height: 15em;
 }
 
 .sectionBottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   position: relative;
   height: 100%;
 }
 
+::-webkit-scrollbar {
+  width: 1em;
+}
+
+::-webkit-scrollbar-track {
+  background-color: white;
+  -webkit-box-shadow: inset 3px 3px 5px black;
+          box-shadow: inset 3px 3px 5px black;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: darkorange;
+  -webkit-box-shadow: inset 3px 3px 5px black;
+          box-shadow: inset 3px 3px 5px black;
+}
+
 .background {
   background-color: #7676e4;
+  background-image: url(../images/sunCloudsBlueSky.jpg);
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -89,12 +116,24 @@ img {
   background-image: url(../images/Clouds.jpeg);
 }
 
-.drizzle {
-  background-image: url(../images/sunCloudsBlueSky.jpg);
+.Drizzle {
+  background-image: url(../images/Drizzle.jpg);
 }
 
-.rain {
-  background-image: url(../images/sunCloudsBlueSky.jpg);
+.Rain {
+  background-image: url(../images/Rain.jpg);
+}
+
+.Thunderstorm {
+  background-image: url(../images/Thunderstorm.jpg);
+}
+
+.Snow {
+  background-image: url(../images/Snow.jpg);
+}
+
+.Mist, .Haze {
+  background-image: url(../images/Mist.jpg);
 }
 
 .mainTitle {
@@ -107,6 +146,13 @@ img {
   padding: .6em;
 }
 
+.mainTemp {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  font-size: 3em;
+}
+
 .weatherCard {
   position: absolute;
   display: -webkit-box;
@@ -116,13 +162,13 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 100%;
+  width: 90%;
   height: 20em;
   margin: 1em auto;
   padding: 1em;
   -webkit-box-shadow: 3px 3px 6px black;
           box-shadow: 3px 3px 6px black;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .weatherCard .subTitle {
@@ -134,13 +180,11 @@ img {
 }
 
 .weatherCard p {
-  width: 100%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   margin-top: .5em;
   text-align: center;
-}
-
-.weatherCard .mainTemp {
-  font-size: 3em;
 }
 
 .weatherCard .iconContainer {
@@ -168,6 +212,33 @@ img {
   -ms-grid-column: 2;
   -ms-grid-column-span: 3;
   grid-area: 3/2/6/5;
+}
+
+.subInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.errorMessage {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.errorMessage h2 {
+  width: 100%;
+  text-align: center;
 }
 
 .searchBar {
@@ -309,8 +380,10 @@ img {
   border-bottom: 1px solid black;
   -webkit-box-shadow: 2px 2px 4px black;
           box-shadow: 2px 2px 4px black;
-  -webkit-transform-origin: top center;
-          transform-origin: top center;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  -webkit-animation: showContent 0.3s ease-in-out;
+          animation: showContent 0.3s ease-in-out;
 }
 
 .listItem .accordionTitle {
@@ -362,7 +435,7 @@ img {
 }
 
 .listItem .accordionTitle.active {
-  color: white;
+  color: darkorange;
 }
 
 .listItem .accordionContent.active {

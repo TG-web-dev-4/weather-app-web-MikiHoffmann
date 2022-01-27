@@ -1,5 +1,6 @@
 .background {
     background-color: rgb(118, 118, 228);
+    background-image: url(../images/sunCloudsBlueSky.jpg);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -12,9 +13,18 @@
 .Clouds {
     background-image: url(../images/Clouds.jpeg);
 }
-.drizzle {
-    background-image: url(../images/sunCloudsBlueSky.jpg);
+.Drizzle {
+    background-image: url(../images/Drizzle.jpg);
 }
-.rain {
-    background-image: url(../images/sunCloudsBlueSky.jpg);
+.Rain {
+    background-image: url(../images/Rain.jpg);
+}
+.Thunderstorm {
+    background-image: url(../images/Thunderstorm.jpg);
+}
+.Snow {
+    background-image: url(../images/Snow.jpg);
+}
+.Mist, .Haze {
+    background-image: url(../images/Mist.jpg);
 }

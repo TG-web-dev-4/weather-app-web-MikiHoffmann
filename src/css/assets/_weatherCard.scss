@@ -2,12 +2,12 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 90%;
     height: 20em;
     margin: 1em auto;
     padding: 1em;
     box-shadow: 3px 3px 6px rgb(0,0,0);
-    overflow-y: scroll;
+    overflow-y: auto;
     .subTitle {
         padding: .5em;
         font-size: 1.3em;
@@ -15,12 +15,9 @@
         box-shadow: 3px 3px 6px rgb(0,0,0);
     }
     p {
-        width: 100%;
+        width: fit-content;
         margin-top: .5em;
         text-align: center;
-    }
-    .mainTemp {
-        font-size: 3em;
     }
     .iconContainer {
         display: grid;
@@ -34,5 +31,18 @@
         h2 {
             grid-area: 3/2/6/5;
         }
+    }
+}
+.subInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.errorMessage {
+    align-items: center;
+    justify-content: center;
+    h2 {
+        width: 100%;
+        text-align: center;
     }
 }

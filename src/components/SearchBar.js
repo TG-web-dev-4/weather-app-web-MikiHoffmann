@@ -1,13 +1,14 @@
 import { useState } from "react";
 
-const SearchBar = ({getWeatherData}) => {
+const SearchBar = ({ getWeatherData }) => {
   const [city, setCity] = useState("");
   const onKeyDown = (e) => {
     if (e.keyCode === 13) {
       getWeatherData(city);
+      setCity("");
     }
   };
-  
+
   return (
     <div className="searchBar">
       <input
@@ -17,7 +18,14 @@ const SearchBar = ({getWeatherData}) => {
         value={city}
         onKeyDown={onKeyDown}
       />
-      <button onClick={() => getWeatherData(city)}>get my info</button>
+      <button
+        onClick={() => {
+          getWeatherData(city);
+          setCity("");
+        }}
+      >
+        get my info
+      </button>
     </div>
   );
 };

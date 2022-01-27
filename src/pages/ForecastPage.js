@@ -41,19 +41,19 @@ export default function ForecastPage({ forecast, cityName }) {
       );
     if (error)
       return (
-        <div className="weatherCard">
+        <div className="weatherCard errorMessage">
           <h2>Error when fetching: {error}</h2>
         </div>
       );
     if (!forecastData && isLoading)
       return (
-        <div className="weatherCard">
+        <div className="weatherCard errorMessage">
           <h2>LOADING...</h2>
         </div>
       );
     if (!forecastData)
       return (
-        <div className="weatherCard">
+        <div className="weatherCard errorMessage">
           <h2>please select your city</h2>
         </div>
       );
